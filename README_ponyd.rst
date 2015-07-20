@@ -17,7 +17,7 @@ Quick userland install
 
 ::
 
-  curl -sk https://cloud.github.com/downloads/square/PonyDebugger/bootstrap-ponyd.py | \
+  curl -sk https://raw.githubusercontent.com/JonathanBouaziz/PonyDebugger/master/bootstrap-ponyd.py | \
     python - --ponyd-symlink=/usr/local/bin/ponyd ~/Library/PonyDebugger
 
 This will install ``ponyd`` script to ``~/Library/PonyDebugger/bin/ponyd`` and
@@ -39,7 +39,7 @@ Upgrading your installation can be done with the following commands::
   # activate your virtualenv
   source ~/Library/PonyDebugger/bin/activate
   # update the ponyd source
-  pip install -U -e git+https://github.com/square/PonyDebugger.git#egg=ponydebugger
+  pip install -U -e git+https://github.com/JonathanBouaziz/PonyDebugger.git#egg=ponydebugger
   # updates chrome dev tools source
   ponyd update-devtools     
 
