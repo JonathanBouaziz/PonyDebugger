@@ -116,6 +116,8 @@ class DeviceHandler(tornado.websocket.WebSocketHandler):
         self._unregisterForHeartbeats()
         self.app_state.unregisterDevice(self)
 
+    def check_origin(self, origin):
+        return True
 
     def _runHeartbeat(self):
         logging.info("Heartbeating")
@@ -175,6 +177,9 @@ class DevToolsHandler(tornado.websocket.WebSocketHandler):
 
     def on_close(self):
         self.app_state.devToolsClosed(self)
+    
+    def check_origin(self, origin):
+        return True
 
     def on_message(self, msg):
         if self.device:
@@ -194,6 +199,9 @@ class LobbyHandler(tornado.websocket.WebSocketHandler):
     def on_close(self):
         logger.info('Lobby Disconnected')
         self.app_state.removeLobby(self)
+    
+    def check_origin(self, origin):
+        return True
 
     def on_message(self, msg):
         pass
